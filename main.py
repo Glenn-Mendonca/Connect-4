@@ -59,7 +59,7 @@ def majdCheck(token):
             if(count==4): return token
     return 0
 def mindCheck(token):
-    for i in range(2):
+    for i in range(3):
         for j in range(3,7):
             count,len = 0,4
             while(len):
