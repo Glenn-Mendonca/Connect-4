@@ -80,6 +80,7 @@ tok = ['#','$']
 count  = 42
 intro()
 
+#Game Loop
 while(count):
     clear()
     token = tok[count%2]
@@ -88,10 +89,12 @@ while(count):
     insert(arr)
     if(hCheck(token) or vCheck(token) or majdCheck(token) or mindCheck(token)):
         clear()
+        drawGrid(arr)
         print('Player ',tok.index(token)+1,' is the Winner \U0001F973\U0001F389')
         break
     count -= 1
 if(count==0):
     print('It was a Draw. LOL!\nBoth of you lost.\n')
 if(input('Press any key to exit.')):
+    clear()
     exit()
