@@ -92,7 +92,7 @@ arr = [['*','*','*','*','*','*','*'],
        ['*','*','*','*','*','*','*']]
 tok = ['#','$']
 count  = 42
-mode = int(input("Select Game mode\n0: Multiplayer\n1: Single Player\n"))
+mode = int(input("0: Multiplayer\n1: Single Player\nSelect Game mode : "))
 intro()
 
 #Game Loop
