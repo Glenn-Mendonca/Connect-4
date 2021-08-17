@@ -1,5 +1,6 @@
 #Dependencies
 from os import system,name
+import random
 
 #Functions
 def clear():
@@ -9,7 +10,10 @@ def intro():
     print('Welcome to Connect-4')
     print('Token Distribution: ')
     print('Player 1: ',tok[0])
-    print('Player 2: ',tok[1])
+    print('Player 2: ',tok[1],end='')
+    if(mode):
+        print(' (Computer)')
+    input('\nPress Enter to Start.')
 def drawGrid(arr):
     for i in range(1,8):
         print(i,end=' ')
@@ -19,7 +23,11 @@ def drawGrid(arr):
             print(arr[i][j],end=' ')
         print()      
 def insert(arr):
+    y = 0
     while(True):
+        if(mode and count%2): 
+            y = comp(arr)
+            break
         y = int(input('Enter column number: '))
         y -= 1
         if(y<0 or y>6 or arr[0][y]!='*'):
@@ -68,6 +76,12 @@ def mindCheck(token):
                 len -= 1
             if(count==4): return token
     return 0
+def comp(arr):
+    moves = []
+    for i in range(0,7):
+        if(arr[0][i]=='*'):
+            moves.append(i)
+    return random.choice(moves)
 
 #Main Program
 arr = [['*','*','*','*','*','*','*'],
@@ -78,6 +92,7 @@ arr = [['*','*','*','*','*','*','*'],
        ['*','*','*','*','*','*','*']]
 tok = ['#','$']
 count  = 42
+mode = int(input("Select Game mode\n0: Multiplayer\n1: Single Player\n"))
 intro()
 
 #Game Loop
